@@ -1,6 +1,12 @@
 import axios from "axios";
 import Card from "./components/Card";
+import styled from "styled-components";
 import { useEffect, useState } from "react";
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 function App() {
   const [wilders, setWilders] = useState(null);
   const getDatas = async () => {
@@ -14,7 +20,7 @@ function App() {
     getDatas();
   }, []);
   return (
-    <div className="flex flex-wrap justify-center">
+    <Container>
       {!wilders ? (
         <div>Loading</div>
       ) : (
@@ -29,7 +35,7 @@ function App() {
           );
         })
       )}
-    </div>
+    </Container>
   );
 }
 
