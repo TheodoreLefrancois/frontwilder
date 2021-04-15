@@ -1,7 +1,7 @@
 import axios from "axios";
-import Card from "./components/Card";
+import Card from "../components/Card";
 import { useEffect, useState } from "react";
-function App() {
+function Wilders() {
   const [wilders, setWilders] = useState(null);
   const getDatas = async () => {
     const {
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default Wilders;
