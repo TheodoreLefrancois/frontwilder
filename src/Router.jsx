@@ -18,10 +18,11 @@ function Router() {
 
   const removeWilder = async (id) => {
     try {
-      const data = await axios.delete(
+      const { status } = await axios.delete(
         `http://localhost:5000/api/wilder/delete/${id}`
       );
-      if (data) getDatas();
+      console.log({ status: status });
+      if (status.toString() === "204") getDatas();
     } catch (err) {
       console.log(err);
     }
