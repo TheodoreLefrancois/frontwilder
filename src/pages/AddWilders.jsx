@@ -1,10 +1,10 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useContext } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
+import WildersContext from "../context/WildersContext";
 
 const initialWilderDatas = {
   name: "",
@@ -23,6 +23,8 @@ function AddWilders() {
   const [displaySkillForm, setDisplaySkillForm] = useState(false);
 
   const [displayCard, setDisplayCard] = useState(false);
+
+  const { addWilder } = useContext(WildersContext);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -62,19 +64,8 @@ function AddWilders() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const {
-        data: { result },
-      } = await axios.post("http://localhost:5000/api/wilder/create", {
-        ...wilderDatas,
-      });
-      if (result) {
-        console.log(result);
-        setWildersData({ ...initialWilderDatas });
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    const response = await addWilder({ ...wilderDatas });
+    if (response === "it Worked") setWildersData({ ...initialWilderDatas });
   };
   return (
     <>

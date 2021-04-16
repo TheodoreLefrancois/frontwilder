@@ -1,22 +1,11 @@
-import axios from "axios";
 import Card from "../components/Card";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import WildersContext from "../context/WildersContext";
 function Wilders() {
-  const [wilders, setWilders] = useState(null);
-  const getDatas = async () => {
-    const {
-      data: { result },
-    } = await axios.get("http://localhost:5000/api/wilder/read");
-    console.log(result);
-    setWilders([...result]);
-  };
-  useEffect(() => {
-    getDatas();
-  }, []);
-
+  const { wilders } = useContext(WildersContext);
   return (
     <>
       <Header titlePage="All The Wilders" />
