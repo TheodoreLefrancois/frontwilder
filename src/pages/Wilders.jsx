@@ -16,6 +16,7 @@ function Wilders() {
   useEffect(() => {
     getDatas();
   }, []);
+
   return (
     <>
       <Header titlePage="All The Wilders" />
@@ -27,6 +28,7 @@ function Wilders() {
             wilders.map((wilder) => {
               return (
                 <Card
+                  isDeletable={true}
                   id={wilder._id}
                   key={wilder._id}
                   name={wilder.name}

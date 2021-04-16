@@ -3,7 +3,7 @@ import axios from "axios";
 import SkillsMapping from "./SkillsMapping";
 import { useEffect, useState } from "react";
 
-function Card({ name, city, skills, id }) {
+function Card({ name, city, skills, id, isDeletable }) {
   const [isDeleted, setIsDeleted] = useState(false);
   useEffect(() => {}, [isDeleted]);
   const handleDelete = async (e) => {
@@ -40,9 +40,11 @@ function Card({ name, city, skills, id }) {
               })}
             </div>
           </div>
-          <div className="mt-5">
-            <Button onClick={handleDelete} text="Delete this card" />
-          </div>
+          {isDeletable && (
+            <div className="mt-5">
+              <Button onClick={handleDelete} text="Delete this card" />
+            </div>
+          )}
         </div>
       )}
     </>

@@ -123,6 +123,7 @@ function AddWilders() {
               }`}
             >
               <Card
+                isDeletable={false}
                 name={wilderDatas.name}
                 city={wilderDatas.city}
                 skills={wilderDatas.skills}
