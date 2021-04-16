@@ -81,7 +81,7 @@ function AddWilders() {
       <Header titlePage="Add a Wilder" />
       <div className="flex flex-col items-center">
         <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-col sm:flex-row w-full ml-6 items-center justify-center">
+          <div className="flex flex-col sm:flex-row w-full ml-6 items-start justify-center">
             <form className="flex flex-col items-center max-w-sm w-11/12 mt-5 border-2 border-red-500 rounded-lg p-4 mr-7">
               <Input
                 handleChange={handleChange}
